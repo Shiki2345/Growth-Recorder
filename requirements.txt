@@ -1,0 +1,2 @@
+anthropic>=0.28.0
+PyPDF2>=4.0.0

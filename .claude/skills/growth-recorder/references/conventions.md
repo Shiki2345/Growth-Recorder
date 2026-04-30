@@ -12,14 +12,16 @@
 
 开工前按下面清单读一遍，理解当前约定和已沉淀内容，避免重复造轮子：
 
-| 文件 | 读取目的 |
+所有路径均相对于项目根 `c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\`。若当前 CWD 不在该目录下（例如从别的项目调 `/GR`），使用绝对路径读写。
+
+| 文件（相对项目根） | 读取目的 |
 |------|---------|
 | `CLAUDE.md` | 项目约定、实际路径、进行中的工作线 |
 | `工作流程指南.md` | 4 步标准工作流、总结维度详解 |
 | `核心模块深度拆解_访问策略与安全监管.md` | 用户当前主攻业务域 |
-| `产品方法论/产品思维框架.md` + `术语表.md` | 已沉淀方法论/术语，避免重复 |
+| `产品方法论\产品思维框架.md` + `产品方法论\术语表.md` | 已沉淀方法论/术语，避免重复 |
 | `每周日志索引.md` + `已读文档日志.md` | 避免重复处理同一份文档 |
-| **最近一份周报**（`Glob 每周总结/*.md` 取修改时间最新） | 作为结构与风格模板 |
+| **最近一份周报**（`Glob 每周总结\*.md` 取修改时间最新） | 作为结构与风格模板 |
 
 读不到的文件明确报告，不要猜。
 
@@ -60,8 +62,13 @@
 ## 路径速查
 
 - **项目根**：`c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\`
-- **Memory**：`C:\Users\Administrator\.claude\projects\c--Users-Administrator\memory\`
-- **周报输出**：`每周总结/第X周总结.md`（项目根相对路径）
+- **Memory**：`C:\Users\Administrator\.claude\projects\c--Users-Administrator\memory\`（对应用户主目录启动 Claude Code 时的 memory 路径；历史 memory 全在此）
+- **周报输出**：`c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\每周总结\第X周总结.md`
+- **已读日志**：`c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\已读文档日志.md`
+- **每周索引**：`c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\每周日志索引.md`
+- **方法论库**：`c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\产品方法论\`
+
+skill 从任何目录被调用都用上述绝对路径读写，不依赖 CWD。
 
 ### 旧路径（只读，不要改）
 
@@ -96,8 +103,8 @@
 
 ### 已读文档日志"对应总结"列的填法
 
-- **模式 A**：填方法论链接（如 `产品方法论/产品思维框架.md#方法论标题`）；无新方法论时填 `N/A`
-- **模式 B**：填周报链接（如 `每周总结/第X周总结.md`）
+- **模式 A**：填方法论链接（如 `产品方法论\产品思维框架.md#方法论标题`，日志里用项目根相对路径方便阅读）；无新方法论时填 `N/A`
+- **模式 B**：填周报链接（如 `每周总结\第X周总结.md`，同上用相对路径）
 
 ## 注意事项（执行时自检）
 

@@ -1,6 +1,6 @@
 ---
 name: growth-recorder
-description: 处理产品实习材料的提炼与沉淀。两种模式并存 —— 模式 A（单文档提炼）：用户贴工单/PDF/飞书文档要求"总结一下/沉淀/记录这份/提炼"时自动加载；模式 B（周总结）：用户说"周报/本周总结/周总结/Week X/汇总这周/做周报"时自动加载。两模式都会更新方法论库、memory、已读文档日志；仅模式 B 额外生成周报文件和更新每周索引。
+description: 成长记录官 —— 产品实习材料的提炼与沉淀。仅通过 /GR 命令显式调用，不自动加载。内部有两种模式：A 单文档提炼（更方法论/memory/已读日志），B 周总结（全流程 + 生成周报 + 更新每周索引）。
 allowed-tools: Read Grep Glob Write Edit Bash TodoWrite
 ---
 
@@ -26,23 +26,23 @@ allowed-tools: Read Grep Glob Write Edit Bash TodoWrite
 按 [references/conventions.md](references/conventions.md) 的"模式识别规则"判断走 **模式 A（单文档提炼）** 还是 **模式 B（周总结）**。模糊时**主动问一句**再动，不要猜。
 
 ### Step 1 — 读权威文档 **[A/B]**
-按 `conventions.md` 清单读取；Glob `每周总结/*.md` 取修改时间最新作为结构模板。
+按 `conventions.md` 清单读取；Glob `c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\每周总结\*.md` 取修改时间最新作为结构模板。
 
 ### Step 2 — 生成周报文件 **[仅 B]**
-`每周总结/第X周总结.md` — 严格套 [references/weekly-template.md](references/weekly-template.md)（第四周规范）。
+`c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\每周总结\第X周总结.md` — 严格套 [references/weekly-template.md](references/weekly-template.md)（第四周规范）。
 
-### Step 3 — 追加 `已读文档日志.md` **[A/B]**
+### Step 3 — 追加 `c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\已读文档日志.md` **[A/B]**
 7 列：`序号 | 文档名 | 读取时间 | 来源类型 | 关键词 | 对应总结 | 备注`
 - 模式 A 的"对应总结"列：填方法论链接；无新方法论时填 `N/A`
 - 模式 B 的"对应总结"列：填本周周报链接
 
-### Step 4 — 追加 `每周日志索引.md` **[仅 B]**
+### Step 4 — 追加 `c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\每周日志索引.md` **[仅 B]**
 5 列：`周 | 日期 | 主要工作 | 关键方法论 | 状态`
 
 ### Step 5 — 沉淀方法论 **[A/B]**（若有新）
-- 追加到 `产品方法论/产品思维框架.md`（新 H2 块），标注"新增"或"深化已有框架"
-- 新术语追加到 `产品方法论/术语表.md`（对应 H2 下加 H3）
-- 复杂独立方法论（如《RAG与Skill分工与复用机制.md》）开新文件
+- 追加到 `c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\产品方法论\产品思维框架.md`（新 H2 块），标注"新增"或"深化已有框架"
+- 新术语追加到 `c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\产品方法论\术语表.md`（对应 H2 下加 H3）
+- 复杂独立方法论（如《RAG与Skill分工与复用机制.md》）开新文件，放在 `c:\Users\Administrator\Desktop\Algernon\test\Growth-Recorder\产品方法论\` 下
 
 ### Step 6 — 更新 memory **[A/B]**
 → `C:\Users\Administrator\.claude\projects\c--Users-Administrator\memory\`
